@@ -1,0 +1,310 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project planning handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "sources",
+    "delivery",
+    "release_details",
+    "tickets",
+    "tracker",
+    "approval",
+    "publication",
+    "handoff"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "role",
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "role": {
+            "enum": [
+              "functional",
+              "ux",
+              "architecture",
+              "other"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "delivery": {
+      "$ref": "../../project-scoping/references/delivery.schema.json"
+    },
+    "release_details": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "detail"
+        ],
+        "properties": {
+          "version": {
+            "$ref": "../../project-scoping/references/delivery.schema.json#/$defs/semver"
+          },
+          "detail": {
+            "enum": [
+              "deferred",
+              "detailed",
+              "historical"
+            ]
+          }
+        }
+      }
+    },
+    "tickets": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "title",
+          "version",
+          "change_refs",
+          "item_refs",
+          "outcome",
+          "acceptance_criteria",
+          "depends_on",
+          "external_blockers",
+          "agent_ready",
+          "issue"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^TICKET-[A-Za-z0-9._-]+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "$ref": "../../project-scoping/references/delivery.schema.json#/$defs/semver"
+          },
+          "change_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "item_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "outcome": {
+            "type": "string",
+            "minLength": 1
+          },
+          "acceptance_criteria": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "depends_on": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "external_blockers": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "agent_ready": {
+            "type": "boolean"
+          },
+          "issue": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "number",
+                  "url"
+                ],
+                "properties": {
+                  "number": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string",
+                    "pattern": "^https://github\\.com/[^/]+/[^/]+/issues/[1-9][0-9]*$"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "tracker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "project_mode",
+        "project_url",
+        "ready_label"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+        },
+        "project_mode": {
+          "enum": [
+            "pending",
+            "enabled",
+            "waived"
+          ]
+        },
+        "project_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "ready_label": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "evidence_ref",
+        "reviewed_digest"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "draft",
+            "approved"
+          ]
+        },
+        "evidence_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "reviewed_digest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "authorization_ref",
+        "verified_evidence_ref"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "not_requested",
+            "partial",
+            "complete"
+          ]
+        },
+        "authorization_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "verified_evidence_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "development_ready",
+        "blockers"
+      ],
+      "properties": {
+        "development_ready": {
+          "type": "boolean"
+        },
+        "blockers": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
