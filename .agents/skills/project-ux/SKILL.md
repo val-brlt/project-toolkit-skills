@@ -8,12 +8,13 @@ disable-model-invocation: true
 
 This is a **user-started workflow**, not a production implementation agent. Run after the MVP or requested functional change is approved with `project-scoping`. Preserve a coherent UX for the **whole MVP**, with progressive delivery subsets when already approved. Talk **in French** and follow `AGENTS.md`. Read `references/document-formats.md` and [shared versioning conventions](../project-scoping/references/versioning.md) before writing; the shared reference owns path, backlog, progress and re-entry rules.
 
-**Core principle:** For scopes with UI, the user reviews **interactive HTML mockups**, not one Markdown document per screen. Preserve these complementary outputs:
+**UX artifact policy:** For scopes with UI, the user reviews **interactive HTML mockups**. Produce these complementary outputs:
+
 1. Validated, browser-viewable HTML/CSS/JavaScript mockups when the scope has UI: the visual reference.
 2. A short French `UX-SUMMARY.md`: human-readable design rationale, main journeys/navigation, roadmap awareness, and links.
 3. `UX-CONTRACT.json`: the **machine-readable UX handoff** for architecture, issue planning and implementation, with feature/flow/screen/interaction/preview links.
 
-Optionally maintain `ux/DESIGN-GUIDELINES.md` for decisions shared across versions. **Do not generate `USER-FLOWS.md`, `SCREEN-INVENTORY.md`, or per-screen Markdown files by default.** Existing files may be read as previous context; do not delete or duplicate them without reviewing references and user approval. A separate screen/pattern explanation is exceptional, only when a complex decision cannot be captured adequately by the HTML, contract and summary.
+Optionally maintain `ux/DESIGN-GUIDELINES.md` for decisions shared across versions. Add a separate pattern explanation only when a complex decision requires context beyond the HTML, contract and summary; link it from the summary. For earlier UX documents, apply the Existing documentation section of [document formats](references/document-formats.md).
 
 ## Skills and tool compatibility
 
@@ -69,13 +70,13 @@ Build a **real, offline-capable HTML/CSS/JavaScript gallery** under the same scr
 
 ### 3. Show the real HTML and get visual feedback
 
-Present the working gallery path/URL and describe covered journeys and how the navigation accommodates known future phases **without implementing them**. Review by **journey group** when there are many screens, not file by file. Iterate until the user explicitly approves the actual HTML. Revisit functional documentation only when a separately approved functional scope change is needed. **Do not ask for mandatory approval of per-screen Markdown documentation.**
+Present the working gallery path/URL and describe covered journeys and how the navigation accommodates known future phases **without implementing them**. Review by **journey group** when there are many screens, not file by file. Iterate until the user explicitly approves the actual HTML. Revisit functional documentation only when a separately approved functional scope change is needed.
 
 ### 4. Promote approved visuals and write the handoff
 
 For scopes with new/changed UI, promote the **exact approved complete gallery** and assets only to the reviewed destination. For a new global MVP use `<DOCS_ROOT>/ux/mockups/`; otherwise follow the existing or reviewed scope-specific location from step 2. Before replacement compare the preview with the baseline inventory: every retained screen, anchor, navigation link and local asset must still resolve. Final docs link to canonical HTML. Keep the original gallery when preserving a historical baseline.
 
-Create or update **only**:
+Use the artifact policy above and [document formats](references/document-formats.md) to create or update the applicable files at their canonical locations:
 
 ```text
 <DOCS_ROOT>/
@@ -102,7 +103,7 @@ Legacy `--version <baseline>` and discovery remain supported. Paths passed to `-
 
 Use `py` on Windows when needed. The script checks JSON shape/references/coverage, feature IDs, local HTML anchors/assets and forbidden scratch paths; it **cannot** decide design quality or confirm user approval. Correct discrepancies. If the JSON contradicts the approved HTML, correct the JSON; if the actual design needs changing, obtain renewed visual approval. Ensure any approved functional changes are integrated directly into canonical functional documents and reflected in the JSON. After passing audit and explicit approval of the applicable visuals or no-UI justifications, set UX summary and contract status to `approved` and rerun validation.
 
-Give the user a short French report: approved preview or no-UI justifications, covered journeys/features, relevant future navigation implications, functional documents updated in place (if any), and genuinely unresolved points. **Do not require them to review the whole contract or a screen-by-screen document stack.** Show the complete relevant Git diff, including any canonical functional edits, for transparency.
+Give the user a short French report: approved preview or no-UI justifications, covered journeys/features, relevant future navigation implications, functional documents updated in place (if any), and genuinely unresolved points. Make the full contract available for optional inspection. Show the complete relevant Git diff, including any canonical functional edits, for transparency.
 
 ### 6. Git actions: separate explicit approvals
 

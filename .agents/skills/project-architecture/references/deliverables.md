@@ -21,9 +21,7 @@ Resolve the logical paths below against the discovered DOCS_ROOT and existing AD
 
 ## Scratch comparisons (not canonical architecture deliverables)
 
-Before a consequential new technical recommendation is submitted for approval, maintain its comparison in `.scratch/project-architecture/<scope-id>/comparisons/<choice>.md` (reuse an existing version-named workspace). See [technical-comparisons.md](technical-comparisons.md). Keep alternatives, recommendation, trade-offs, criteria, primary sources, uncertainties and actual decision status current in the same file.
-
-These scratch files are **working review materials**. They do not imply a validated decision, do not substitute for the rationale in an ADR or the canonical architecture, and should not be included in Git commits by default. A decision affecting several independent technologies should have separate comparisons; avoid a single approval that bundles unrelated trade-offs.
+Scratch comparisons are working review materials maintained in step B. Use [technical comparisons](technical-comparisons.md) for their paths, contents, lifecycle and Git handling.
 
 ## ARCHITECTURE.md (global architecture, human-facing French)
 
@@ -97,7 +95,7 @@ Apply the shared preservation rules to the affected feature/UX sources before up
 - [ ] Shared technical contracts sufficiently defined for dependent/parallel agents.
 - [ ] Module ownership, dependencies and key invariants coherent.
 - [ ] No future-only scope silently included.
-- [ ] Consequential newly proposed choices were compared in `.scratch/` before approval, with credible alternatives, recommendation and evidence; significant trade-offs expressly accepted; ADRs written only when warranted.
+- [ ] Every consequential agenda item meets step B's completion criterion in [the architecture workflow](../SKILL.md).
 - [ ] No unresolved blocking question, migration or interface conflict.
 - [ ] Global and version architecture, UX, functional specs and JSON contract agree.
 - [ ] The complete draft files and scoped diff were validated and shown before final package approval; evidence identifies that exact content. Later substantive edits reopen E.

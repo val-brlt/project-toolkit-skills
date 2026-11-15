@@ -14,7 +14,7 @@ This workflow starts only at the user's explicit request. Act as the **architect
 
 1. **Discover before creating.** Locate the actual repository and documentation baseline using the shared conventions.
 2. **Approved inputs are authoritative.** Read relevant material before asking a question. Distinguish approved decisions, proposals, undocumented assumptions, and code currently shipped. Do not relitigate an approved choice without a material conflict.
-3. **Explicit decision control.** Before asking to approve a significant architectural choice, produce a decision-specific comparison of genuinely viable alternatives, a clear recommendation and its trade-offs. Do not confuse proposing a choice with approving it. No proposal becomes approved merely because the user did not object.
+3. **Explicit decision control.** Consequential choices remain proposed until the user explicitly accepts them through B's decision procedure.
 4. **Canonical documents.** Apply shared preservation rules; distinguish the approved target from actual shipped code.
 5. **Approval gates.** Decision approval in B and package approval in E are separate; final Git authorizations belong to F.
 6. **No invented traceability.** Reuse `FEAT-*`, `FLOW-*`, `SCREEN-*`, ADR IDs and other identifiers as they exist. Do not fabricate feature approvals, UI behavior, implementation state, scale targets, credentials, hosting details, or test results.
@@ -56,11 +56,11 @@ If a required approved input is absent or inconsistent, perform whatever bounded
 - Evaluate only applicable nonfunctional requirements: authentication/authorization, privacy/security, data integrity, resilience, backup/recovery, accessibility-related technical implications, performance, growth, maintainability, testability, hosting/operations, cost, observability, compliance.
 - Express significant requirements as observable scenarios or measurable acceptance criteria **only when evidence provides a target**. Otherwise show the target as unresolved; never invent thresholds.
 - Build a short decision agenda, ordered by risk, cross-module dependencies and difficulty to reverse. First distinguish issues that need a human decision from those safely solved by convention.
-- Break a bundled stack proposal into independently reversible, meaningfully different choices (e.g. frontend framework, backend runtime/framework, storage technology, Codex integration, deployment). Connect the choices through shared constraints, but do not demand a single yes/no for several unrelated technologies. A bundled comparison is acceptable only when the options are genuinely inseparable architectures.
+- Group the agenda's choices using the Purpose and scope section of [technical comparisons](references/technical-comparisons.md).
 
 ### B. Research, compare, recommend and approve significant decisions
 
-For each consequential **unapproved** choice, follow [technical comparisons](references/technical-comparisons.md): frame the decision, research credible alternatives, persist and present the comparison, then obtain an explicit individual decision before updating canonical materials.
+For each consequential **unapproved** choice, follow the Decision procedure section of [technical comparisons](references/technical-comparisons.md), which owns option analysis, comparison records and decision handling.
 
 **Done:** every consequential choice in the agenda has an up-to-date scratch comparison (or justified single-option exception), recommendation, evidence/uncertainties and a recorded user decision. Accepted decisions have verifiable approval and canonical rationale; rejected/deferred choices remain explicit. Deferred choices that block planning keep the handoff non-ready. Leave local, low-impact implementation conventions to development.
 
@@ -92,7 +92,7 @@ Prepare the global `ARCHITECTURE.md`, applicable `TECHNICAL-DESIGN.md`, `ARCHITE
 
 1. Cross-check each scoped feature against modules/dependencies and applicable FLOW/SCREEN/ACT handling, states, authorization and failures. Compare functional docs, approved UX, architecture prose, ADRs and JSON, including shared delivery records. Check source IDs and file links against the actual approved inputs.
 2. From the project repository root run `python .agents/skills/project-architecture/scripts/validate_contract.py <path-to-ARCHITECTURE-CONTRACT.json>`; use `py` on Windows or resolve the installed script path. If Python is unavailable, report manual checks rather than a passed automated audit. Resolve structural errors and blocking contradictions before requesting final approval.
-3. Verify that every consequential decision from this session has its current scratch comparison, alternatives or justified exception, sources/uncertainties and actual decision evidence. Record safely delegable, nonblocking questions separately.
+3. Verify every consequential agenda item against B's completion criterion. Record safely delegable, nonblocking questions separately.
 4. Present a concise French review of the approach, choices/alternatives/risks, modules/data/interfaces and functional/UX links. Show the exact file manifest, scoped diff, validation results and remaining nonblocking questions; make the complete draft package accessible. Request explicit final approval **of those files and their current content**.
 5. Apply corrections to the draft, rerun affected checks and present the changed package for approval. Approval of a comparison or an earlier summary does not approve details written afterward.
 

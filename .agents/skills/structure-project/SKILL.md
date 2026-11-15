@@ -23,7 +23,7 @@ If summary approval or functional scope identity is unclear, obtain the missing 
 
 Read the complete approved summary, current project/MVP/backlog, relevant cards, existing scope baselines, glossary and ADRs. Classify each requested change as a new concept or evolution of an existing feature.
 
-Map requirements to canonical FEAT cards and functional module slugs using the shared conventions. Put items outside the selected scope in the canonical backlog with their actual status and original scope links.
+Map requirements to canonical FEAT cards and functional module slugs using the shared conventions. Include proposed backlog entries for items outside the selected scope, with their actual status and original scope links, in the preview.
 
 Present module, FEAT ID, French name, new/evolution, scope, decision state, provenance, approved acceptance criteria, dependencies and independent progress fields. Include assumptions, contradictions, the exact manifest and diffs to existing approved prose. Every approved requirement must trace to the summary or an explicit user decision; unsupported criteria remain proposed.
 
@@ -52,7 +52,9 @@ For an **unchanged legacy V1/V2 tree**, use `--legacy` instead of `--scope`. Thi
 
 Manually check French prose, approval authority, source faithfulness, criteria, dependencies, independent progress, partial delivery and preservation of delivered behavior. Compare the diff with the approved preview. Validate existing UX/architecture contracts **only when affected** by the functional edits; new scoping work can finish before those contracts exist. Any impacted downstream design remains pending its phase review.
 
-**Done:** all structural errors are resolved, semantic checks are reported, and warnings, missing evidence and downstream impacts are explicit. Automated checks verify neither real approvals nor shipment.
+Report findings without modifying documents. In a preview/apply workflow, return to step 2 for corrections within the approved catalogue and manifest. If a correction changes either or revises approved requirements, return to step 1 for review and approval first. Rerun the audit after corrections. An audit-only request ends with the findings and proposed next action.
+
+**Done (audit):** the report records all structural and semantic findings, warnings, missing evidence and downstream impacts. Proceed to step 4 only after a clean audit: zero structural errors and no unresolved semantic blockers. Automated checks verify neither real approvals nor shipment.
 
 ## 4. Document review and handback
 

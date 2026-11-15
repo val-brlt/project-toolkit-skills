@@ -56,11 +56,11 @@ Keep this snapshot in its source language. Show it in French and request **expli
 
 Follow [structure-project](../structure-project/SKILL.md) in `mode=preview` with the approved summary, `scope_id`, `scope_kind` and DOCS_ROOT. Its current procedure applies equally to direct use and this workflow.
 
-**Done:** the user explicitly approves the catalogue and exact manifest, including diffs to approved content; `mode=apply` produces drafts and `mode=audit` resolves structural errors and reports semantic checks, warnings and downstream impacts. Return the audit package to step 4 for final document approval. Existing UX/architecture contracts are checked only when affected; their absence does not block an initial functional scope.
+**Done:** `structure-project` returns the draft package and a clean audit under its completion criteria. Continue to step 4 for final document approval.
 
 ### 4. Document review and approval gate
 
-Present files, exact FEAT set, functional delta, audit results and scoped Git diff, including existing cards used by historical baselines. Ask for **explicit document approval**; revise/re-audit corrections. On approval, update the current scope document's `status: draft` to `approved` and show the metadata diff; **never** change delivery/development state or rewrite unrelated approvals. No automatic transition into UX.
+Present files, exact FEAT set, functional delta, audit results and scoped Git diff, including existing cards used by historical baselines. Ask for **explicit document approval**; route corrections through `structure-project`'s correction and audit procedure, then return for document approval. On approval, update the current scope document's `status: draft` to `approved` and show the metadata diff; **never** change delivery/development state or rewrite unrelated approvals. No automatic transition into UX.
 
 ### 5. Git permissions: always separate
 

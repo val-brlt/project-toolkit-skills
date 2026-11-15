@@ -9,7 +9,6 @@ This reference governs **the analysis shown to the user before approval** and it
 - Aim for 2–4 credible candidates; eliminate obviously incompatible options briefly, with an explicit reason if the exclusion matters. Do not invent weak options or pretend a single option is objectively best without explaining project constraints.
 - A comparative table should be understandable by the user without reading source code or opening the scratch file. The scratch copy retains more detail and sources for session continuity.
 - Prefer qualitative comparison unless measured values and meaningful weights are known. Avoid invented ratings, costs, scales, benchmarks or deployment promises.
-- An approved choice should not be relitigated for variety. Reopen only for a verified conflict, new requirement, failed assumption or an explicit user request.
 - Compare technologies independently of what is installed on the user's machine. Existing shipped architecture and verified hosting constraints matter; incidental local tool availability never selects a stack.
 
 ## Decision procedure
@@ -20,7 +19,7 @@ This reference governs **the analysis shown to the user before approval** and it
 4. **Decide:** ask one targeted approval question at a time and wait for explicit acceptance. Record `proposed`, `accepted`, `rejected` or `deferred` with verifiable approval evidence. Preserve the original recommendation and user feedback if another option is chosen; update the same file's current decision and consequences. Summarize the user's choice and consequences before moving to the next independent decision. New constraints or alternatives return to the comparison before approval.
 5. **Integrate:** put accepted decisions in canonical architecture sections and a sparse ADR only when warranted. Preserve essential context, alternatives, rationale and consequences there independently of scratch. Draft proposals remain visibly proposed. Settle cross-module/shared-data contracts, security boundaries, deployment and difficult migrations before planning; a consequential deferred blocker keeps the handoff non-ready.
 
-Local, low-impact implementation conventions need no full comparison or human decision. When a consequential choice has only one credible option, document the constraint, attempted alternative search and reason the option is forced, then obtain approval. Reuse already-approved choices unless a verified conflict, changed requirement or explicit user request reopens them.
+Local, low-impact implementation conventions need no full comparison or human decision. When a consequential choice has only one credible option, document the constraint, attempted alternative search and reason the option is forced, then obtain approval. Reuse already-approved choices unless a verified conflict, changed requirement, failed assumption or explicit user request reopens them.
 
 ## Exact scratch convention
 
@@ -39,7 +38,7 @@ Default relative to **repository root**:
 
 These filenames are **illustrative**, not mandatory deliverables. `<scope-id>` can be `mvp`, an existing legacy baseline or an already-approved release. Preserve existing workspaces; a new software version does not duplicate comparisons. Write only for real open consequential decisions, with a project slug when needed to avoid collisions.
 
-Before asking for user approval, create/update the choice's Markdown file. Use a **stable kebab-case slug** to update the same comparison after discussion. No date-stamped duplicate files or addenda. If the choice is rejected, revised, or approved, update its status and decision record in the same file. Do not turn a discussion draft into an accepted ADR without approval. Existing files from older attempts should be revised in place, never wholesale overwritten without reading their decisions first.
+Use a **stable kebab-case slug** to update the same comparison after discussion. If the choice is rejected, revised, or approved, update its status and decision record in that file. Read existing files from older attempts before revising them so their decision history remains attributable.
 
 Treat scratch as noncanonical working history. Keep it available for resuming the conversation, but do **not** reference it as the only explanation of an approved decision: the canonical architecture document or a justified ADR must contain the essential reasoning. Inspect `.gitignore` and `git status` as appropriate; avoid committing scratch files or leaking local secrets. If scratch is not ignored, tell the user and suggest a repository-appropriate ignore rule; don't quietly include scratch in the next commit.
 
@@ -84,13 +83,3 @@ Treat scratch as noncanonical working history. Keep it available for resuming th
 ```
 
 All visible comparison explanations are normally **French**; the template's headings may be translated. Be concrete, not verbose for its own sake. A one-screen table and a short recommendation may suffice for a medium decision; higher-risk decisions deserve more depth and source checking.
-
-## Review checklist
-
-- [ ] Scope: one understandable question, not three independent tools bundled into one approval.
-- [ ] Option space: relevant competing approaches and ecosystems surveyed.
-- [ ] Comparability: credible, same-purpose candidates and project-specific differentiating criteria.
-- [ ] Evidence: material claims sourced, estimates labeled, important unknowns transparent.
-- [ ] Judgment: clear recommendation, why alternatives lose, accepted compromises.
-- [ ] Persistence: scratch Markdown exists and reflects the **current** user-visible comparison.
-- [ ] Status: approval is explicit; draft recommendations do not become canonical decisions.

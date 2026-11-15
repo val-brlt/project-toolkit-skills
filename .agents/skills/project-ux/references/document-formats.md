@@ -4,7 +4,7 @@ Instructions here are **in English**. Generated UX summaries, HTML UI text and J
 
 ## Design artifacts and their roles
 
-**HTML** is the approved visual/interaction example; it is offline-capable, non-production and navigable. **`UX-CONTRACT.json`** is the structured, implementation-independent UX behavior and traceability source used by later agents. **`UX-SUMMARY.md`** provides a concise overview for the user, without copying each screen's content. **`ux/DESIGN-GUIDELINES.md`** is optional and describes stable shared patterns only when validated. No standard `USER-FLOWS.md`, `SCREEN-INVENTORY.md` or `ux/screens/<screen>.md` is needed. Exceptional complex-pattern notes are permitted when they add genuinely unique context; reference them from the summary.
+Follow the [UX workflow's artifact policy](../SKILL.md) for required deliverables and exceptional pattern notes. **HTML** is the approved visual/interaction example; it is offline-capable, non-production and navigable. **`UX-CONTRACT.json`** is the structured, implementation-independent UX behavior and traceability source used by later agents. **`UX-SUMMARY.md`** provides a concise overview for the user. **`ux/DESIGN-GUIDELINES.md`** describes validated shared patterns.
 
 Use [shared conventions](../../project-scoping/references/versioning.md) for paths, backlog, progress and re-entry. Step 2 of the UX workflow owns gallery construction and preservation; promote that exact approved result. The paths below describe a new MVP; existing and reviewed scope-specific UX directories take precedence. Final files reference canonical HTML.
 
@@ -26,7 +26,11 @@ Use [shared conventions](../../project-scoping/references/versioning.md) for pat
         └── app.js                        # if needed by HTML
 ```
 
-Do not create empty folders or force every HTML file to have external CSS/JS. Keep version history, but avoid per-screen documentation and duplicate data.
+Create folders and external CSS/JS files only for assets the gallery uses. Preserve version history.
+
+### Existing documentation
+
+If earlier UX work includes `USER-FLOWS.md`, `SCREEN-INVENTORY.md` or per-screen Markdown files, read relevant documents as context and preserve their paths and references. Migration or removal requires an explicitly reviewed change and user approval.
 
 ## UX-SUMMARY.md — compact user-facing format
 
@@ -40,7 +44,7 @@ scope: MVP.md
 # Conception UX/UI — Objectif MVP
 
 ## Objectifs et parcours principaux
-<Brief description of selected tasks and journeys, without per-screen documents>
+<Brief description of selected tasks and journeys>
 
 ## Navigation et décisions de conception
 <Overall organization and rationale for decisions not evident from the mockup>
