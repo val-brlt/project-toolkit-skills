@@ -112,7 +112,7 @@ The main workflows select the methods relevant to their stage. Some supporting s
 | Refine the architecture | [`codebase-design`](.agents/skills/codebase-design/SKILL.md), [`software-architecture`](.agents/skills/software-architecture/SKILL.md) |
 | Write documentation | [`writing-for-agents`](.agents/skills/writing-for-agents/SKILL.md), [`create-readme`](.agents/skills/create-readme/SKILL.md) |
 
-The [dependency list](docs/agents/skill-dependencies.md) details the skills used, their sources, and their roles. `research` and `prototype` are used as needed during each stage.
+`research` and `prototype` are used as needed during each stage.
 
 `structure-project` provides the documentation structure procedure used by `project-scoping`. The [functional documentation reference](.agents/skills/project-scoping/references/functional-documents.md) explains how they work together; the [shared conventions](.agents/skills/project-scoping/references/versioning.md) define the backlog, progress states, and the distinction between the MVP and releases.
 

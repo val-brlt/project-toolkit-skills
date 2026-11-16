@@ -1,6 +1,6 @@
 # Technical option comparisons (working documents)
 
-This reference governs **the analysis shown to the user before approval** and its persistent scratch copy. It incorporates discussion-first facilitation adapted from Tikalk's `architect-specify`; the procedure below is self-contained. `project-architecture` owns phase boundaries, approvals and artifacts.
+This reference governs **the analysis shown to the user before approval** and its persistent scratch copy. `project-architecture` owns phase boundaries, approvals and artifacts.
 
 ## Purpose and scope
 

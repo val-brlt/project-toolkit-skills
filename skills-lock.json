@@ -1,6 +1,41 @@
 {
   "version": 2,
   "skills": {
+    "adr-authoring": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "adr-authoring/SKILL.md",
+      "computedHash": "f252fcbc340e67329387fdf1d94f9280bdf14bf1afe593e6f2c637f9d5cbc3c9"
+    },
+    "api-design-and-evolution": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "api-design-and-evolution/SKILL.md",
+      "computedHash": "61afe9b34e51c57451d7f4cfa71d9df5b9d6165d3c8d48a294246ec33e0a1ada"
+    },
+    "backend-engineering": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "backend-engineering/SKILL.md",
+      "computedHash": "58f5dfeb01614cdbd3737fd8883e9228f426a7883c6a54405ef4a911873511b6"
+    },
+    "c4-diagramming": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "c4-diagramming/SKILL.md",
+      "computedHash": "7c781af7f8bafb6917d72c9605b5812a2c4158be07c5f2ebdf2008a509585242"
+    },
+    "capacity-and-cost-engineering": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "capacity-and-cost-engineering/SKILL.md",
+      "computedHash": "5ca58671539716c5258f986c155a7191089cd366b8906bbfebbfe0b3fc5e7fa2"
+    },
     "codebase-design": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -13,11 +48,26 @@
       "skillPath": "skills/create-readme/SKILL.md",
       "computedHash": "59e7a20cc6e183f31c0161a619b66f96d05656378c1cef886522b6845d33c953"
     },
+    "data-architect": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "data-architect/SKILL.md",
+      "computedHash": "f63d635947e97218df0c8c4912780c5ec4ef634728b87f934c9a5d685b0fdec4"
+    },
     "design-critique": {
       "source": "anthropics/knowledge-work-plugins",
       "sourceType": "github",
       "skillPath": "design/skills/design-critique/SKILL.md",
       "computedHash": "b9647396db0c7a2208519ae3e8313646705aef4b9a2ddab82088b54fe2404f05"
+    },
+    "design-system-management": {
+      "source": "anthropics/knowledge-work-plugins",
+      "commit": "e91a134584eb798bac7fb0379358006a2b63b965",
+      "sourceType": "github",
+      "skillPath": "design/skills/design-system/SKILL.md",
+      "computedHash": "d3106301e4bb78c2a5878063cee7b37ab0f69c3947243eb64b49a8332bff21e8",
+      "skillName": "design-system"
     },
     "domain-modeling": {
       "source": "mattpocock/skills",
@@ -37,6 +87,34 @@
       "skillPath": "skills/productivity/grilling/SKILL.md",
       "computedHash": "485451958784497cd4c4dbea13cb5bbb579da58fac0d0e45f3bcb310fab68ac7"
     },
+    "mermaid-diagrams": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "mermaid-diagrams/SKILL.md",
+      "computedHash": "2b135430d8572074109aebd9653e1b316d22c77ae921b79c5ce69d8d332e5dc9"
+    },
+    "migration-engineering": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "migration-engineering/SKILL.md",
+      "computedHash": "1e984288e9c5eff4988d179d60bf744e033544a53f4d0d2f62868f73519da373"
+    },
+    "platform-engineering": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "platform-engineering/SKILL.md",
+      "computedHash": "838b4340476223ce06bcadcf2f3cefacb08c14cf1896e189a7461ef0ad158344"
+    },
+    "programming-principles": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "programming-principles/SKILL.md",
+      "computedHash": "dd42de77cc063449f269f8f24f5168f880bcdf6b2879946a83918a58ab369253"
+    },
     "prototype": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -49,11 +127,53 @@
       "skillPath": "skills/engineering/research/SKILL.md",
       "computedHash": "7662666af51f8b1672ed7d88360d4b82656da21bb7b11c49e956eeb3036b85d5"
     },
+    "resilience-and-recovery": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "resilience-and-recovery/SKILL.md",
+      "computedHash": "2e47b65f82da320811039d442123f25aee028645b7613bfc803adce2643c408c"
+    },
+    "secure-software-engineering": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "secure-software-engineering/SKILL.md",
+      "computedHash": "321f7a8240c23f4591d38a1bb2c4716db5b577b6edff3689db5c1d8e78240ac4"
+    },
+    "site-reliability-engineering": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "site-reliability-engineering/SKILL.md",
+      "computedHash": "bb172fa9e4625d4cd5814d1a179344bdf2739551c2bb711ac960b15b4af38a63"
+    },
     "software-architecture": {
       "source": "magnus919/agent-skills",
       "sourceType": "github",
       "skillPath": "software-architecture/SKILL.md",
       "computedHash": "4ad3f1fe3d763fdb7eda5fdcd827fd4266810acf3be13201522c471d46cb4d84"
+    },
+    "software-architecture-analysis": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "software-architecture-analysis/SKILL.md",
+      "computedHash": "b7eafcbc738912c511ffdb85ae1e149e055c6991d9551cd683c543a2b2683d5b"
+    },
+    "technology-radar": {
+      "source": "magnus919/agent-skills",
+      "commit": "3b5309ec191139437c7c589fbd231e6be9d9e532",
+      "sourceType": "github",
+      "skillPath": "technology-radar/SKILL.md",
+      "computedHash": "828b97ab4236ef6555c4fd8978b599c2cbed998a312d86732e141de2b542ac9f"
+    },
+    "to-tickets": {
+      "source": "mattpocock/skills",
+      "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/to-tickets/SKILL.md",
+      "computedHash": "17496514c92954f68eacdf2b1221e2ddb39fa231b83f03c70bc7d4422f704b2d"
     },
     "writing-for-agents": {
       "source": "mattpocock/skills",

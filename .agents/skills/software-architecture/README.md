@@ -13,7 +13,7 @@ It is useful for greenfield systems, target-state design, modular-monolith decis
 | Path | Provides |
 |---|---|
 | `SKILL.md` | Thin workflow index and ownership boundaries |
-| `references/` | Seven focused decision guides plus public source index |
+| `references/` | Focused decision guides |
 | `templates/` | Architecture design brief, tradeoff record, and review worksheet |
 | `evals/evals.json` | Twelve output-quality cases covering design, distributed-data mechanism choices, and routing boundaries |
 

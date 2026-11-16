@@ -4,9 +4,9 @@ Instructions here are **in English**. Generated UX summaries, HTML UI text and J
 
 ## Design artifacts and their roles
 
-Follow the [UX workflow's artifact policy](../SKILL.md) for required deliverables and exceptional pattern notes. **HTML** is the approved visual/interaction example; it is offline-capable, non-production and navigable. **`UX-CONTRACT.json`** is the structured, implementation-independent UX behavior and traceability source used by later agents. **`UX-SUMMARY.md`** provides a concise overview for the user. **`ux/DESIGN-GUIDELINES.md`** describes validated shared patterns.
+Follow the [UX workflow's artifact policy](../SKILL.md) for required deliverables and exceptional pattern notes. **HTML** is the approved visual/interaction example; it is offline-capable, non-production and navigable. **`UX-CONTRACT.json`** is the structured, implementation-independent UX behavior and traceability source used by later agents. **`UX-SUMMARY.md`** provides a concise overview for the user. For a scope with UI, maintain the shared **`ux/DESIGN-GUIDELINES.md`** for validated visual/interaction patterns and **`ux/DESIGN-TOKENS.json`** for actual approved visual values, or reuse existing authoritative equivalents. Follow [visual quality and anti-AI-slop guidance](visual-quality.md) for the visual system format, browser and detector review, context compatibility and approval gates. These separate artifacts supplement but do not change the UX contract schema.
 
-Use [shared conventions](../../project-scoping/references/versioning.md) for paths, backlog, progress and re-entry. Step 2 of the UX workflow owns gallery construction and preservation; promote that exact approved result. The paths below describe a new MVP; existing and reviewed scope-specific UX directories take precedence. Final files reference canonical HTML.
+Use [shared conventions](../../project-scoping/references/versioning.md) for paths, backlog, progress and re-entry. Step 2 of the UX workflow owns gallery construction and preservation; promote that exact approved result only after explicit visual approval in step 3. The paths below describe a new MVP; existing and reviewed scope-specific UX directories take precedence. Final files reference canonical HTML.
 
 ## Final file tree
 
@@ -17,7 +17,8 @@ Use [shared conventions](../../project-scoping/references/versioning.md) for pat
 ├── modules/<module>/<feature>.md           # canonical functional features
 ├── MVP.md                                 # indispensable global scope, independent of releases
 └── ux/                                    # or existing versions/<baseline>/ux/, preserve paths
-    ├── DESIGN-GUIDELINES.md               # optional
+    ├── DESIGN-GUIDELINES.md               # shared visual system, UI scopes only
+    ├── DESIGN-TOKENS.json                 # shared visual values, UI scopes only
     ├── UX-SUMMARY.md
     ├── UX-CONTRACT.json
     └── mockups/
@@ -26,11 +27,11 @@ Use [shared conventions](../../project-scoping/references/versioning.md) for pat
         └── app.js                        # if needed by HTML
 ```
 
-Create folders and external CSS/JS files only for assets the gallery uses. Preserve version history.
+Create folders and external CSS/JS files only for assets the gallery uses. Preserve version history. The design files are shared across scopes, not duplicated per release. Retain existing authoritative locations. Keep intermediate wireframes, direction boards, detector reports and working previews in scratch; do not promote them by default.
 
 ### Existing documentation
 
-If earlier UX work includes `USER-FLOWS.md`, `SCREEN-INVENTORY.md` or per-screen Markdown files, read relevant documents as context and preserve their paths and references. Migration or removal requires an explicitly reviewed change and user approval.
+If earlier UX work includes `USER-FLOWS.md`, `SCREEN-INVENTORY.md` or per-screen Markdown files, read relevant documents as context and preserve their paths and references. Migration or removal requires an explicitly reviewed change and user approval. Do not regenerate or redesign already approved galleries merely to introduce the new visual-system artifacts; reuse approved evidence, ask only about genuinely undecided visual rules, and never invent earlier approvals.
 
 ## UX-SUMMARY.md — compact user-facing format
 
@@ -52,14 +53,17 @@ scope: MVP.md
 ## Maquettes validées
 [Ouvrir les maquettes HTML](mockups/index.html)
 
+## Identité visuelle et conventions partagées
+<Short description of the approved direction; link the canonical design guidelines and tokens at their actual paths>
+
 ## Anticipation des évolutions futures (hors périmètre)
 <Navigation implications of the product vision and future features, without new mockup screens>
 
 ## Accessibilité, limites et questions ouvertes
-<Useful conventions and exceptions, or state in French that no blockers remain>
+<Useful conventions, tests actually run, review limitations and exceptions, or state in French that no blockers remain>
 ```
 
-For a scope with **unchanged UI**, replace the mockup link with a real link to the existing approved HTML. For an **entirely no-UI scope**, retain `Maquettes validées` and explain that no mockup applies, linking the approved functional source and summarizing each user-approved `no_ui` justification; create no HTML or mockup folder. Its contract has empty `flows`/`screens`, one justified `no_ui` coverage record per scoped feature and only the corresponding FEAT delivery items. `status` stays `draft` until the applicable visuals or no-UI justifications are explicitly approved and validation passes, then becomes `approved`. Neither approval proves software delivery.
+For a scope with **unchanged UI**, replace the mockup link with a real link to the existing approved HTML. For an **entirely no-UI scope**, omit the visual identity section, retain `Maquettes validées` and explain that no mockup applies, linking the approved functional source and summarizing each user-approved `no_ui` justification; create no HTML or mockup folder and no unnecessary visual system. Its contract has empty `flows`/`screens`, one justified `no_ui` coverage record per scoped feature and only the corresponding FEAT delivery items. `status` stays `draft` until the applicable visuals or no-UI justifications are explicitly approved and validation passes, then becomes `approved`. Neither approval proves software delivery.
 
 ## UX-CONTRACT.json — required machine-readable format
 
@@ -135,7 +139,7 @@ Use the following schema shape. This is an *illustrative* dataset, not a claim t
 
 **Future considerations:** optional entries with `source` pointing to an **existing** project/roadmap source, `item`, `navigationImplication`. Choose only future/deferred needs for these entries; the backlog can also contain already-approved features outside this change. These entries cannot create current-version `FEAT-*`, screens, journeys, Issue scope or clickable future features. They preserve future-aware navigation decisions without mocking future phases.
 
-**JSON is the authoritative UX *data* handoff**, but the approved MVP/change scope and feature cards remain the functional truth; never overwrite them merely because JSON or prototype code suggests new behavior. The `UX-SUMMARY.md` summarizes instead of duplicating fields, allowing the future architecture/planning skill to use the JSON without re-parsing long Markdown tables.
+**JSON is the authoritative UX *data* handoff**, but the approved MVP/change scope and feature cards remain the functional truth; never overwrite them merely because JSON or prototype code suggests new behavior. The `UX-SUMMARY.md` summarizes instead of duplicating fields, allowing the future architecture/planning skill to use the JSON without re-parsing long Markdown tables. The separate approved design tokens and guidelines are visual-system inputs for later agents; link them from the summary rather than extending this contract with unsupported fields.
 
 ## Functional refinements
 
@@ -143,4 +147,4 @@ Use the functional-refinement procedure in [the UX workflow](../SKILL.md) when a
 
 ## Validation rules
 
-Run `python .agents/skills/project-ux/scripts/validate_ux_docs.py <DOCS_ROOT> --contract <contract-path>` (path relative to working directory). Legacy `--version <baseline>` is supported, including `v1`; SemVer directories are also accepted. With neither option, discover global and legacy contracts. Validate shape, coverage, IDs, dependency/delivery metadata, anchors/assets and scratch isolation. Static checks do not verify user authority, evidence contents, JavaScript behavior or visual quality; for UI scopes open final HTML and compare against the approved preview. For an entirely no-UI scope manually verify each justification and its explicit approval instead. Review functional edits in the scoped diff before separate commit/push permissions. Changes to approved documents/contracts or removal of historical files require an explicit reviewed diff and user approval.
+Run `python .agents/skills/project-ux/scripts/validate_ux_docs.py <DOCS_ROOT> --contract <contract-path>` (path relative to working directory). Legacy `--version <baseline>` is supported, including `v1`; SemVer directories are also accepted. With neither option, discover global and legacy contracts. Validate shape, coverage, IDs, dependency/delivery metadata, anchors/assets and scratch isolation. Static checks do not verify user authority, evidence contents, JavaScript behavior, design tokens or visual quality; for UI scopes open final HTML and compare against the approved preview, check token JSON and the visual system, and report tests and limitations per [visual quality guidance](visual-quality.md). For an entirely no-UI scope manually verify each justification and its explicit approval instead. Review functional edits in the scoped diff before separate commit/push permissions. Changes to approved documents/contracts or removal of historical files require an explicit reviewed diff and user approval.

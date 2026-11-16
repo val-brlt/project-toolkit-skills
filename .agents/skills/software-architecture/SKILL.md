@@ -57,7 +57,6 @@ Do not use this skill as a substitute for those specialist owners, as a code rev
 | Defining fitness evidence, drift response, or evolutionary change | `references/evolution-fitness-functions-and-drift.md` |
 | Planning coexistence and handing execution to migration engineering | `references/migration-and-coexistence.md` |
 | Running architecture workshops, reviews, and decision facilitation | `references/architecture-practice-and-facilitation.md` |
-| Checking provenance and the licensed-books transformation boundary | `references/source-index.md` |
 
 Keep the ownership split explicit when loading DDIA: this skill owns the system-level architecture decision and its tradeoffs; `programming-principles` supplies distributed-data principles and mechanism detail. Route message-handler implementation to `backend-engineering`, API or event contracts to `api-design-and-evolution`, data-platform design to `data-architect`, and exercised recovery evidence to `resilience-and-recovery`.
 
